@@ -93,8 +93,8 @@ async def main():
         is_logged_in = await login(username, password, panel)
 
         now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-        # 构造面板+用户名的标识
-        panel_username = f"{serviceName}-{username}"
+        # 构造面板+用户名的标识，例如 "s8-xhy7"
+        panel_username = f"{panel.split('.')[0].split('/')[0]}-{username}"
 
         if is_logged_in:
             message += f"✅*{panel_username}* 于北京时间 {now_beijing} 登录面板成功！\n\n"
